@@ -3,10 +3,16 @@
 @import "primeicons/primeicons.css";
 
 
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
 @layer reset, prieng;
 
 @layer reset {
-  body {
+  * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }

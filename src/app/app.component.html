@@ -1,7 +1,15 @@
 <main class="flex relative h-screen w-screen">
-  <app-header />
-  <app-sidebar />
-  <app-form-worker />
-</main>
+  <app-header></app-header>
+  <app-sidebar (viewChange)="switchView($event)"></app-sidebar>
+  <div class="flex-1 grid place-content-center h-full">
+    @if ( currentView === 'add' ) {
+    <app-form-worker
+      (trabajadorAgregado)="agregarTrabajador($event)"
+    ></app-form-worker>
+    }@else {
+    <app-worker-table [trabajadores]="trabajadores"></app-worker-table>
 
-<router-outlet />
+    }
+  </div>
+  <p-toast></p-toast>
+</main>

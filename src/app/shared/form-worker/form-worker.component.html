@@ -1,6 +1,11 @@
-<div class="max-w-md mx-auto bg-white p-8 mt-10 rounded-lg shadow-md">
+<div
+  class="flex flex-col max-w-md m-auto bg-white p-8 mt-10 rounded-lg shadow-md"
+>
   <h2 class="text-2xl font-bold mb-6">Agregar Trabajador</h2>
-  <form (submit)="onSubmit($event, trabajadorForm)" #trabajadorForm="ngForm">
+  <form
+    (submit)="agregarTrabajador($event, trabajadorForm)"
+    #trabajadorForm="ngForm"
+  >
     <div class="mb-4">
       <label for="nombre" class="block text-sm font-medium text-gray-700"
         >Nombre</label
@@ -9,7 +14,7 @@
         type="text"
         id="nombre"
         name="nombre"
-        ngModel
+        [(ngModel)]="trabajador.nombre"
         required
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       />
@@ -22,7 +27,7 @@
         type="email"
         id="email"
         name="email"
-        ngModel
+        [(ngModel)]="trabajador.email"
         required
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       />
@@ -35,7 +40,7 @@
         type="text"
         id="puesto"
         name="puesto"
-        ngModel
+        [(ngModel)]="trabajador.puesto"
         required
         class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
       />
@@ -49,16 +54,4 @@
       </button>
     </div>
   </form>
-
-  <!-- Lista de trabajadores -->
-  <div class="mt-8">
-    <h3 class="text-xl font-semibold mb-4">Trabajadores Agregados</h3>
-    <ul class="list-disc pl-5">
-      <li *ngFor="let trabajador of trabajadores" class="mb-2">
-        <strong>Nombre:</strong> {{ trabajador.nombre }} <br />
-        <strong>Email:</strong> {{ trabajador.email }} <br />
-        <strong>Puesto:</strong> {{ trabajador.puesto }}
-      </li>
-    </ul>
-  </div>
 </div>

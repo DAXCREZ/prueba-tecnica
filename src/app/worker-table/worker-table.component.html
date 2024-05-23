@@ -1,0 +1,97 @@
+<div class="max-w-full mx-auto bg-white p-8 mt-10 rounded-lg shadow-md">
+  <h2 class="text-2xl font-bold mb-6">Lista de Trabajadores</h2>
+  <p-table
+    [value]="trabajadores"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [lazy]="true"
+    [paginator]="true"
+    [rows]="10"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Puesto</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-trabajador>
+      <tr>
+        <td>{{ trabajador.nombre }}</td>
+        <td>{{ trabajador.email }}</td>
+        <td>{{ trabajador.puesto }}</td>
+        <td>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-pencil"
+            (click)="onRowEditInit(trabajador)"
+            class="p-button-warning p-mr-2"
+          ></button>
+          <button
+            pButton
+            type="button"
+            icon="pi pi-trash"
+            (click)="onDelete(trabajador)"
+            class="p-button-danger"
+          ></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <p-dialog
+    header="Editar Trabajador"
+    [(visible)]="displayModal"
+    modal="modal"
+    [closable]="false"
+    [style]="{ width: '30vw' }"
+  >
+    <div *ngIf="trabajadorSeleccionado">
+      <div class="p-field">
+        <label for="nombre">Nombre</label>
+        <input
+          id="nombre"
+          type="text"
+          pInputText
+          [(ngModel)]="trabajadorSeleccionado.nombre"
+        />
+      </div>
+      <div class="p-field">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          pInputText
+          [(ngModel)]="trabajadorSeleccionado.email"
+        />
+      </div>
+      <div class="p-field">
+        <label for="puesto">Puesto</label>
+        <input
+          id="puesto"
+          type="text"
+          pInputText
+          [(ngModel)]="trabajadorSeleccionado.puesto"
+        />
+      </div>
+    </div>
+    <p-footer>
+      <p-button
+        label="Guardar"
+        icon="pi pi-check"
+        (click)="onRowEditSave()"
+        class="p-button-success"
+      ></p-button>
+      <p-button
+        label="Cancelar"
+        icon="pi pi-times"
+        (click)="onRowEditCancel()"
+        class="p-button-secondary"
+      ></p-button>
+    </p-footer>
+  </p-dialog>
+
+  <p-toast></p-toast>
+  <p-confirmDialog></p-confirmDialog>
+</div>

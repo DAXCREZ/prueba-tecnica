@@ -12,12 +12,14 @@
   </figure>
   <ul class="flex flex-col list-none gap-y-2">
     <button
+      (click)="switchToAdd()"
       class="flex items-center gap-x-2 border-none px-3 py-2.5 rounded-md lg:px-8 bg-gray-400 hover:bg-gray-600 text-white transition-colors duration-200 cursor-pointer"
     >
       <i class="pi pi-plus"></i>
       <span class="hidden lg:block">Agregar</span>
     </button>
     <button
+      (click)="switchToView()"
       class="flex items-center gap-x-2 border-none px-3 py-2.5 rounded-md lg:px-8 bg-gray-400 hover:bg-gray-600 text-white transition-colors duration-200 cursor-pointer"
     >
       <i class="pi pi-search"></i>
@@ -33,7 +35,7 @@
     />
     <div class="hidden lg:flex flex-col">
       <p class="text-md">Luis Diego Bayona</p>
-      <span class="text-sm"> lubafa2014&#64;gmail.com</span>
+      <span class="text-sm">lubafa2014&#64;gmail.com</span>
     </div>
   </figure>
 </aside>

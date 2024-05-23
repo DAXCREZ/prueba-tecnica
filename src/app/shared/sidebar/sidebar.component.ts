@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
 @Component({
@@ -6,9 +6,16 @@ import { ButtonModule } from 'primeng/button';
   standalone: true,
   imports: [ButtonModule],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css'
+  styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent {
+  @Output() viewChange = new EventEmitter<'add' | 'view'>();
 
+  switchToAdd() {
+    this.viewChange.emit('add');
+  }
 
+  switchToView() {
+    this.viewChange.emit('view');
+  }
 }

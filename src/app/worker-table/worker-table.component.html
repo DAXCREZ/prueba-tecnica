@@ -1,11 +1,14 @@
 <div class="max-w-full mx-auto bg-white p-8 mt-10 rounded-lg shadow-md">
   <h2 class="text-2xl font-bold mb-6">Lista de Trabajadores</h2>
   <p-table
-    [value]="trabajadores"
-    [tableStyle]="{ 'min-width': '50rem' }"
+    [value]="trabajadoresPaginados"
     [lazy]="true"
+    (onLazyLoad)="loadTrabajadores($event)"
     [paginator]="true"
     [rows]="10"
+    [totalRecords]="totalRecords"
+    [loading]="loading"
+    [tableStyle]="{ 'min-width': '50rem' }"
   >
     <ng-template pTemplate="header">
       <tr>

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { WorkerTableComponent } from './worker-table/worker-table.component';
-
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
 import { FormWorkerComponent } from './shared/form-worker/form-worker.component';
